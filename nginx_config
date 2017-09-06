@@ -1,0 +1,16 @@
+upstream www {
+
+	server 10.0.1.169:5000;
+	server 10.0.1.205:5000;
+	#Replace:5000;
+	#Replace:5000;
+	#Replace:5000;
+	#Replace:5000;
+	#Replace:5000;
+}
+server {
+        location / {
+          proxy_pass http://www;
+        }
+}
+

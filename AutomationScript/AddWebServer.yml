@@ -1,0 +1,32 @@
+- name: Create a Web Server
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  vars:
+    key_name: nuage
+    instance_type: t2.micro
+    security_group: sg-49d12032
+    image: ami-b7f761d7
+    region: us-west-2
+    ec2_tag_Name: Web_server
+    ec2_subnet_ids: ['subnet-4482e123','subnet-dd018494']
+  tasks:
+    - name: Launch instance
+      ec2:
+         key_name: "{{ key_name }}"
+         group_id: "{{ security_group }}"
+         instance_type: "{{ instance_type }}"
+         image: "{{ image }}"
+         wait: true
+         region: "{{ region }}"
+         instance_tags: '{"Name":"Web_Server"}'
+         vpc_subnet_id: "{{ ec2_subnet_ids|random }}"
+         assign_public_ip: no
+         count: 1
+         volumes: 
+         - device_name: /dev/sda1
+           device_type: gp2
+           volume_size: 8
+           delete_on_termination: true
+      register: ec2
+

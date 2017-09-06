@@ -1,0 +1,10 @@
+Web App 
+https://code.tutsplus.com/series/creating-a-web-app-from-scratch-using-python-flask-and-mysql--cms-827
+
+Connect mysql remotely
+Step 1) http://www.cyberciti.biz/tips/how-do-i-enable-remote-access-to-mysql-database-server.html
+Step 2) http://stackoverflow.com/questions/19101243/error-1130-hy000-host-is-not-allowed-to-connect-to-this-mysql-server
+
+Load Balancing
+https://www.atlantic.net/community/howto/install-configure-nginx-load-balancer/
+
